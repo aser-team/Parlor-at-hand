@@ -15,7 +15,6 @@ public class classone {
                      private byte[] picture;
   
 
-    
     public classone(String pname, String pfor,String pservicel,String pservicet, String powner, int pcontact, String pemail,String username,String password, byte[] image)
     {
   this.pname =pname;
