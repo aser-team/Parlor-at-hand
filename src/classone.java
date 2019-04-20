@@ -29,9 +29,48 @@ public class classone {
           this.picture=image;
     }
     
+  
+    public String getPname()
+    {
+        return pname;
+    }
     
- 
-    
-   
-    
+      public String getPfor()
+    {
+        return pfor;
+    }
+        public String getPservicel()
+    {
+        return pservicel;
+    }
+        
+         public String getPservicet()
+    {
+        return pservicet;
+    }
+           public String getPowner()
+    {
+        return powner;
+    }
+             public int getPcontact()
+    {
+        return pcontact;
+    }
+      public String getPemail()
+         {
+           return pemail;
+         }
+               
+       public String getUsername()
+         {
+           return username;
+         }
+     public String getPassword()
+    {
+        return password;
+    }
+     public byte[] getImage()
+    {
+        return picture;
+    }
 }
