@@ -35,10 +35,59 @@ public class ManageBookingFrame extends javax.swing.JFrame {
     public ManageBookingFrame() {
         initComponents();
        // DBConnection.getConnection();
+        Show_Bookings_In_JTable();
+    }
+
+        DBManagement DBConnection=new DBManagement();
+        ArrayList<ParlorManageBooking> bookList=new ArrayList<ParlorManageBooking>();
+        
+        public ArrayList<ParlorManageBooking> getBookingList()
+        {
+        Connection con=DBConnection.getConnection();
+        String cid="";
+       // String query="SELECT pname,sname,sprice,date_and_time,book_status FROM parlor,service,booking WHERE parlor.pid=booking.pid and booking.sid=service.sid and booking.cid="+cid+"";
+               String query="SELECT bid,pname,sname,sprice,date_and_time,book_status FROM parlor,service,booking WHERE parlor.pid=booking.pid and booking.sid=service.sid and booking.BStatus='true'";
+        Statement st;
+        ResultSet rs;
+        
+        try 
+        {
+            st=con.createStatement();
+            rs=st.executeQuery(query);
+            ParlorManageBooking bookings;
+            
+            while(rs.next())
+            {
+               bookings=new ParlorManageBooking(rs.getInt("bid"),rs.getString("pname"),rs.getString("sname"),rs.getString("sprice"),rs.getString("date_and_time"),rs.getString("book_status"));
+               bookList.add(bookings);
+            }
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(ManageBookingFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return bookList;
+        }
+        
+    public void Show_Bookings_In_JTable()
+    {
+        ArrayList<ParlorManageBooking> list=getBookingList();
+        DefaultTableModel model=(DefaultTableModel)Booking_table.getModel();
+        
+        Object[] row=new Object[5];
+        for (int i=0;i<list.size();i++)
+        {
+            row[0]=list.get(i).getParlorName();
+            row[1]=list.get(i).getServiceName();
+            row[2]=list.get(i).getPrice();
+            row[3]=list.get(i).getDateandTime();
+            row[4]=list.get(i).getBookStatus();
+            
+            model.addRow(row);
+        }
     }
     
-    
-   
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -157,7 +206,7 @@ public class ManageBookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_searchActionPerformed
 
     private void Booking_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Booking_tableMouseClicked
-
+        
     }//GEN-LAST:event_Booking_tableMouseClicked
     
     /**
