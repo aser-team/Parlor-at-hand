@@ -45,7 +45,6 @@ public class ManageBookingFrame extends javax.swing.JFrame {
         {
         Connection con=DBConnection.getConnection();
         String cid="";
-       // String query="SELECT pname,sname,sprice,date_and_time,book_status FROM parlor,service,booking WHERE parlor.pid=booking.pid and booking.sid=service.sid and booking.cid="+cid+"";
                String query="SELECT bid,pname,sname,sprice,date_and_time,book_status FROM parlor,service,booking WHERE parlor.pid=booking.pid and booking.sid=service.sid and booking.BStatus='true'";
         Statement st;
         ResultSet rs;
@@ -87,7 +86,12 @@ public class ManageBookingFrame extends javax.swing.JFrame {
         }
     }
     
-  
+    public void filter(String query)
+    {
+        TableRowSorter<DefaultTableModel> tr=new TableRowSorter<DefaultTableModel>((DefaultTableModel) Booking_table.getModel());
+        Booking_table.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(query));
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -196,17 +200,37 @@ public class ManageBookingFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+    public void GETID(int index)
+    {
+        bid_field.setText(Integer.toString(getBookingList().get(index).getBookingId()));
+    }
     private void Btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_cancelActionPerformed
-       
+        // TODO add your handling code here:
+        DefaultTableModel model=(DefaultTableModel) Booking_table.getModel();
+        try {
+            int SelectedRow=Booking_table.getSelectedRow();
+            model.removeRow(SelectedRow);
+            Connection con=DBConnection.getConnection();
+                    PreparedStatement ps=con.prepareStatement("UPDATE booking SET BStatus=? WHERE bid=?");
+                    int bid=Integer.parseInt(bid_field.getText());
+                    ps.setInt(2, bid);
+                    String f="false";
+                    ps.setString(1,f);
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(null,"deleted");
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageBookingFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_Btn_cancelActionPerformed
 
     private void Btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_searchActionPerformed
-        
+         String search_key=Search_field.getText();
+         filter(search_key);
     }//GEN-LAST:event_Btn_searchActionPerformed
 
     private void Booking_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Booking_tableMouseClicked
-        
+        int indexr=Booking_table.getSelectedRow();
+        GETID(indexr);
     }//GEN-LAST:event_Booking_tableMouseClicked
     
     /**
