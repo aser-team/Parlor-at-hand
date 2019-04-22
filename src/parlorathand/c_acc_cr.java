@@ -250,7 +250,14 @@ public class c_acc_cr extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+public int GetCid()
+    {
+            Connection conn =DB.getConnection();
+            String query="SELECT * FROM customer ORDER BY cid DESC LIMIT 1";
+            
+         
+           return 0;
+    }
     /**
      * @param args the command line arguments
      */

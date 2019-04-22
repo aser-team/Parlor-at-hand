@@ -29,7 +29,7 @@ public class DBConnection {
     } 
     catch (SQLException ex) 
     {
-        //Logger.getLogger(c_acc_cr.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(c_acc_cr.class.getName()).log(Level.SEVERE, null, ex);
         JOptionPane.showMessageDialog(null,"Not Connected");
         return null;
     }
