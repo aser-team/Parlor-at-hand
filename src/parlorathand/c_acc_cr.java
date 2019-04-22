@@ -252,11 +252,20 @@ public class c_acc_cr extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 public int GetCid()
     {
+        try {
             Connection conn =DB.getConnection();
             String query="SELECT * FROM customer ORDER BY cid DESC LIMIT 1";
-            
-         
-           return 0;
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery(query);
+            while(rs.next())
+            {
+            Globalcid=rs.getInt("cid");
+            return Globalcid;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(c_acc_cr.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
     /**
      * @param args the command line arguments
