@@ -281,7 +281,10 @@ String sql ="insert into parlor(pname,pfor,pservicel,pservicet,powner,pcontact,p
         ps.executeUpdate();
         JOptionPane.showMessageDialog(null,"Insertion successful");
      
-       
+        int Globalpid2=GetPid();
+        dispose();
+        conn.close();
+        new NewJFrame(Globalpid2).setVisible(true);
    }
    catch(Exception e)
    {    
