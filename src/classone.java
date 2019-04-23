@@ -29,7 +29,7 @@ public class classone {
           this.picture=image;
     }
     
-  
+
     public String getPname()
     {
         return pname;
