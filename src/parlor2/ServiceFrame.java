@@ -251,9 +251,27 @@ public class ServiceFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_insertActionPerformed
 
     private void BTN_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_updateActionPerformed
+            String UpdateQuery=null;
+            PreparedStatement ps=null;
+            Connection con=db.getConnection();
+        try {
+                    UpdateQuery="UPDATE service SET sname=?,sprice=?"+",sdescription=? WHERE sid=?";
+                    ps=con.prepareStatement(UpdateQuery);
+     
+                    ps.setString(1,sname_field.getText());
+                    ps.setString(2,sprice_field.getText());
+                    ps.setString(3,Area_description.getText());
 
+                    ps.executeUpdate();
+                    Insert_Products_In_JTable();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ServiceFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
     }//GEN-LAST:event_BTN_updateActionPerformed
     public void ShowItem(int index){
+           sname_field.setText(getServiceList(pid).get(index).getsname());
+        sprice_field.setText(getServiceList(pid).get(index).getsprice());
+        Area_description.setText(getServiceList(pid).get(index).getsdescription());
     }
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
 
