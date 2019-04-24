@@ -220,27 +220,7 @@ public class c_acc_cr extends javax.swing.JFrame {
            // Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/parlour","root","");
            Connection conn =DB.getConnection();
            String sql ="insert into customer(cname,cgender,ccontact,cemail,cusername,cpassword)values(?,?,?,?,?,?)";
-            PreparedStatement ps =conn.prepareStatement(sql);
-
-            ps.setString(1,t1.getText());
-            String gender = null;
-            if (rd1.isSelected()){
-                gender =rd1.getText();
-            }
-            if (rd2.isSelected()){
-                gender =rd2.getText();
-            }
-            if (rd3.isSelected()){
-                gender =rd3.getText();
-            }
-            ps.setString(2,gender );
-            ps.setInt(3,Integer.parseInt(t2.getText())); ps.setString(3,t2.getText());
             
-            ps.setString(4,t3.getText() );
-            ps.setString(5, t4.getText());
-            ps.setString(6,new String(t5.getPassword()));
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Insertion successful");
           
          
             dispose();
