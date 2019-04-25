@@ -5,19 +5,72 @@
  */
 package parlour.at.hand.main;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import parlour.at.hand.dao.FactoryDao;
+import parlour.at.hand.model.review;
+
 /**
  *
  * @author Shakiba
  */
 public class ReviewListJFrame extends javax.swing.JFrame {
 
+    DefaultListModel model=new DefaultListModel();
+    int parlor_id;
+    FactoryDao fdao=new FactoryDao();
+    String sql_query="FROM review where pid=";
+    String pId;
     /**
      * Creates new form ReviewListJFrame
      */
-    public ReviewListJFrame() {
+    public ReviewListJFrame(int id) {
         initComponents();
+        System.out.println("hello");
+        parlor_id=id;
+        jList1.setModel(model);
+        pId=""+id;
+        jList1.setModel(model);
+        try{
+            FactoryDao fdao=new FactoryDao();
+         List<review> resultlist= fdao.getParlorData(sql_query+pId); 
+         for(review rev:resultlist)
+         {
+            String[] result={"<html>"+"Review: "+rev.getReview()+"<br/>"};
+       for (int i=0; i < result.length; i++) {
+          model.addElement(result[i].trim());
+      } 
+             System.out.println("rev:"+rev.toString());
+         }
+        }catch(Exception e)
+        {
+            
+        }
     }
 
+    public ReviewListJFrame() {
+        initComponents();
+         System.out.println("hello");
+        jList1.setModel(model);
+        try{
+            FactoryDao fdao=new FactoryDao();
+         List<review> resultlist= fdao.getParlorData(sql_query+1); 
+         for(review rev:resultlist)
+         {
+            String[] result={"<html>"+"Review: "+rev.getReview()+"<br/>"};
+       for (int i=0; i < result.length; i++) {
+          model.addElement(result[i].trim());
+      } 
+             System.out.println("rev:"+rev.toString());
+         }
+        }catch(Exception e)
+        {
+            
+        }
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,10 +80,55 @@ public class ReviewListJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(650, 550));
         getContentPane().setLayout(null);
+
+        jList1.setBackground(new java.awt.Color(255, 102, 0));
+        jList1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(130, 130, 350, 300);
+
+        jLabel2.setBackground(new java.awt.Color(255, 102, 0));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel2.setText("Review");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(270, 70, 80, 50);
+
+        jButton1.setBackground(new java.awt.Color(255, 102, 0));
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(60, 53, 80, 30);
+
+        jButton2.setBackground(new java.awt.Color(255, 102, 0));
+        jButton2.setText("Give Review");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(450, 50, 110, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/parlour/at/hand/main/reuslt.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -39,6 +137,18 @@ public class ReviewListJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new ReviewJFrame(parlor_id).setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new ParlorProfileJFrame().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -76,6 +186,11 @@ public class ReviewListJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

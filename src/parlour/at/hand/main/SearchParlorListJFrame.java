@@ -33,7 +33,6 @@ public class SearchParlorListJFrame extends javax.swing.JFrame {
   {
       this.list=list;
       initComponents();
-      new FindParlorJFrame().setVisible(false);
       jList1.setModel(model);
       for(Object object:list)
       {
