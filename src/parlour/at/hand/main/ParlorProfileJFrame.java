@@ -14,6 +14,7 @@ import parlour.at.hand.model.parlor;
  */
 public class ParlorProfileJFrame extends javax.swing.JFrame {
 
+    int i;
   
     public ParlorProfileJFrame() {
         initComponents();
@@ -22,6 +23,8 @@ public class ParlorProfileJFrame extends javax.swing.JFrame {
         initComponents();
         
         parlor p=(parlor)object; 
+         i=p.getPid();
+        //jLabel7.setText(""+i);
         jLabel1.setText(p.getPname());
         jLabel2.setText(""+p.getRating());
         jLabel3.setText(p.getPservicet());
@@ -64,25 +67,25 @@ public class ParlorProfileJFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Rating");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(260, 100, 200, 22);
+        jLabel2.setBounds(270, 100, 200, 22);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("At Place");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(250, 140, 180, 20);
+        jLabel3.setBounds(270, 140, 180, 20);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Address");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(250, 180, 170, 22);
+        jLabel4.setBounds(270, 180, 170, 22);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Phone");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(260, 220, 170, 22);
+        jLabel5.setBounds(280, 220, 170, 22);
 
         jButton1.setBackground(new java.awt.Color(255, 102, 0));
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -135,7 +138,9 @@ public class ParlorProfileJFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        parlor p=new parlor();
+        dispose();
+        
+        new ReviewListJFrame(i).setVisible(true);
         
     }//GEN-LAST:event_jButton3ActionPerformed
 

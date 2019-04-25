@@ -25,18 +25,10 @@ public class review {
     @Column(name = "rid")
     @NotNull
      private int rid;
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "pid")
-    @NotNull
-      private int pid;
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "cid")
-    @NotNull
-      private int cid;
-      private String review;
-       public review() {
+     private int pid;
+     private int cid;
+     private String review;
+     public review() {
     }
 
     public review(int rid, int pid, int cid, String review) {

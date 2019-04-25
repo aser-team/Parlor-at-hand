@@ -15,12 +15,17 @@ import parlour.at.hand.model.review;
  */
 public class ReviewJFrame extends javax.swing.JFrame {
     FactoryDao factorydao;
+    int parlorId;
 
     /**
      * Creates new form RegistrationJFrame
      */
     public ReviewJFrame() {
         initComponents();
+    }
+    public ReviewJFrame(int parlor_id) {
+        initComponents();
+        parlorId=parlor_id;
     }
      public void insertParlor(review r)
     {
@@ -48,6 +53,7 @@ public class ReviewJFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(650, 550));
         getContentPane().setLayout(null);
 
         jTextField1.setBackground(new java.awt.Color(255, 102, 0));
@@ -79,6 +85,11 @@ public class ReviewJFrame extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 102, 0));
         jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(60, 50, 55, 30);
 
@@ -93,9 +104,18 @@ public class ReviewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         parlor p=new parlor();
         int inid=p.getPid();
-         review par=new review(1,1,1, jTextField1.getText());
+         review par=new review(1,parlorId,1, jTextField1.getText());
          insertParlor(par);
+         jTextField1.setText("");
+         dispose();
+          new FindParlorJFrame().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+         new ReviewListJFrame().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
