@@ -230,7 +230,31 @@ public ImageIcon ResizeImage(String imagePath,byte[] pic)
 private void Btn_choose_ImageActionPerformed(java.awt.event.ActionEvent evt) {                                                 
 
     }                      
-  
+    public void Show_Information(int pid)
+    { 
+      Connection conn =DB.getConnection();
+      String query="SELECT pname,pfor,pservicel,pcontact,rating FROM parlor WHERE pid="+pid+"";
+      Statement st;
+      ResultSet rs;
+     try 
+        {
+            st=conn.createStatement();
+            rs=st.executeQuery(query);
+            
+            while(rs.next())
+            {
+               pname_label.setText(rs.getString("pname"));
+               prating.setText(rs.getString("rating"));
+               pfor_label.setText(rs.getString("pfor"));
+               plocation_label.setText(rs.getString("pservicel"));
+               pcontact_label.setText(rs.getString("pcontact"));
+            } 
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        JFileChooser file= new JFileChooser();
        file.setCurrentDirectory(new File(System.getProperty("user.home")));
