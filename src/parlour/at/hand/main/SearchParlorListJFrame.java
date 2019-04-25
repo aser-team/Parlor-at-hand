@@ -61,18 +61,30 @@ public class SearchParlorListJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setPreferredSize(new java.awt.Dimension(630, 525));
+        setResizable(false);
+        getContentPane().setLayout(null);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(437, 313, 113, 33);
 
-        jList1.setBackground(new java.awt.Color(255, 255, 153));
+        jList1.setBackground(new java.awt.Color(255, 102, 0));
         jList1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0)));
         jList1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jList1.setForeground(new java.awt.Color(255, 255, 255));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setSelectionBackground(new java.awt.Color(0, 204, 102));
+        jList1.setPreferredSize(new java.awt.Dimension(530, 430));
+        jList1.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jList1.setSelectionForeground(new java.awt.Color(255, 153, 102));
         jList1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jList1FocusGained(evt);
@@ -95,29 +107,28 @@ public class SearchParlorListJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(100, 110, 450, 340);
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Search Result");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(170, 60, 280, 40);
+
+        jButton1.setBackground(new java.awt.Color(255, 102, 0));
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(33, 50, 70, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/parlour/at/hand/main/parlorfind.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 630, 530);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,6 +142,7 @@ public class SearchParlorListJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
          
          System.out.println("item:"+jList1.getSelectedIndex());
+          dispose();
     new ParlorProfileJFrame(list.get(jList1.getSelectedIndex())).setVisible(true);
         
     }//GEN-LAST:event_jList1MouseClicked
@@ -143,6 +155,12 @@ public class SearchParlorListJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
      //   new ParlorProfileJFrame(plist,id).setVisible(true);
     }//GEN-LAST:event_jList1KeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         new FindParlorJFrame().setVisible(true);
+          dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,13 +193,17 @@ public class SearchParlorListJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                new FindParlorJFrame().setVisible(false);
                 new SearchParlorListJFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

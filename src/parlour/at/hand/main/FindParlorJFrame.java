@@ -30,8 +30,9 @@ public class FindParlorJFrame extends javax.swing.JFrame {
         locationComboBox.addItem("Dhanmondi");
         locationComboBox.addItem("Mirpur");
         locationComboBox.addItem("Mohammadpur"); 
-        genderComboBox.addItem("female");
-        genderComboBox.addItem("male");     
+        genderComboBox.addItem("Female");
+        genderComboBox.addItem("Male");  
+         genderComboBox.addItem("Both");  
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -48,94 +49,85 @@ public class FindParlorJFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         parlorNameTextField1 = new javax.swing.JTextField();
         serviceAtTextField = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(650, 510));
+        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Find Parlours Here!");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(210, 40, 210, 28);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("*Choose Location");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(250, 80, 110, 15);
 
+        jButton1.setBackground(new java.awt.Color(255, 102, 0));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(250, 360, 100, 40);
 
+        locationComboBox.setBackground(new java.awt.Color(255, 102, 0));
+        getContentPane().add(locationComboBox);
+        locationComboBox.setBounds(190, 110, 244, 30);
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Parlor For:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(170, 200, 90, 17);
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Filter Your Search");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(250, 150, 130, 17);
 
+        genderComboBox.setBackground(new java.awt.Color(255, 102, 0));
+        getContentPane().add(genderComboBox);
+        genderComboBox.setBounds(310, 190, 109, 30);
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Parlor Name:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(170, 250, 90, 17);
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Service At:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(180, 300, 80, 17);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(127, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(122, 122, 122))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(parlorNameTextField1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(31, 31, 31)
-                                .addComponent(genderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(27, 27, 27)
-                                .addComponent(serviceAtTextField))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(locationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jButton1)))
-                                .addGap(67, 67, 67)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(locationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(genderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(parlorNameTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(serviceAtTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
+        parlorNameTextField1.setBackground(new java.awt.Color(255, 102, 0));
+        getContentPane().add(parlorNameTextField1);
+        parlorNameTextField1.setBounds(310, 240, 111, 30);
+
+        serviceAtTextField.setBackground(new java.awt.Color(255, 102, 0));
+        getContentPane().add(serviceAtTextField);
+        serviceAtTextField.setBounds(310, 290, 111, 30);
+
+        jButton2.setBackground(new java.awt.Color(255, 102, 0));
+        jButton2.setText("Back");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(50, 40, 80, 30);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/parlour/at/hand/main/parlorfind.jpg"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(0, 0, 640, 490);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -149,9 +141,8 @@ public class FindParlorJFrame extends javax.swing.JFrame {
          QueryModel qModel=new QueryModel(parlor_name,location,service_at,gender);
          fdao=new FactoryDao();        
        List resultlist= fdao.getParlorData(prePareQueryStatement(qModel)); 
-       
+       dispose();
       new SearchParlorListJFrame(resultlist).setVisible(true);
-      
       System.out.println( prePareQueryStatement(qModel) );
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -223,12 +214,14 @@ public class FindParlorJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> genderComboBox;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JComboBox<String> locationComboBox;
     private javax.swing.JTextField parlorNameTextField1;
     private javax.swing.JTextField serviceAtTextField;

@@ -10,6 +10,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import parlour.at.hand.model.parlor;
+import parlour.at.hand.model.review;
 
 /**
  *
@@ -26,12 +27,12 @@ public class FactoryDao {
        
         return results;
     }
-     public void insertValue(parlor p)
+     public void insertValue(review r)
     {
         Session session = new HibernetSession().getSession();
-        //String hql = "FROM parlor WHERE " + columnName + " = '" + columnValue + "'";
+        //String hql = "FROM review WHERE " + columnName + " = '" + columnValue + "'";
         session.getTransaction().begin();
-        session.save(p);
+        session.save(r);
         session.getTransaction().commit();
         session.close();
     }

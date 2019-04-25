@@ -46,6 +46,10 @@ public class parlor {
         this.photo = photo;
     }
 
+    public parlor(int i, int i0, int i1, String toString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getPid() {
         return pid;
     }
