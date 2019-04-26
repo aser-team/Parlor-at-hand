@@ -225,8 +225,6 @@ public ImageIcon ResizeImage(String imagePath,byte[] pic)
         ImageIcon image=new ImageIcon(img2);
         return image;
     }   
-
-
 private void Btn_choose_ImageActionPerformed(java.awt.event.ActionEvent evt) {                                                 
 
     }                      
