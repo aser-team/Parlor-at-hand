@@ -11,17 +11,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
  *
  * @author Aspire
  */
-public class c_acc_cr extends javax.swing.JFrame {
-
-    
-    public c_acc_cr() {
+public class CustomerRegistration_frame extends javax.swing.JFrame {
+    public CustomerRegistration_frame() {
         initComponents();
+        
     }
- DBConnection DB=new DBConnection();
+ Db_Connection DB=new Db_Connection();
  int Globalcid;
     /**
      * This method is called from within the constructor to initialize the form.
@@ -218,9 +223,9 @@ public class c_acc_cr extends javax.swing.JFrame {
         try{
            // Class.forName("com.mysql.jdbc.Driver");
            // Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/parlour","root","");
-           Connection conn =DB.getConnection();
+           Connection conn =DB.get_DBconnection();
            String sql ="insert into customer(cname,cgender,ccontact,cemail,cusername,cpassword)values(?,?,?,?,?,?)";
-           PreparedStatement ps =conn.prepareStatement(sql);
+            PreparedStatement ps =conn.prepareStatement(sql);
 
             ps.setString(1,t1.getText());
             String gender = null;
@@ -240,10 +245,15 @@ public class c_acc_cr extends javax.swing.JFrame {
             ps.setString(5, t4.getText());
             ps.setString(6,new String(t5.getPassword()));
 
+       
+      
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Insertion successful");
           
-         
+            int Globalcid2=GetCid();
             dispose();
             conn.close();
+            new CustomerProfile(Globalcid2).setVisible(true);
         }catch(Exception e){
 
             JOptionPane.showMessageDialog(null, e);
@@ -252,7 +262,7 @@ public class c_acc_cr extends javax.swing.JFrame {
 public int GetCid()
     {
         try {
-            Connection conn =DB.getConnection();
+            Connection conn =DB.get_DBconnection();
             String query="SELECT * FROM customer ORDER BY cid DESC LIMIT 1";
             Statement st=conn.createStatement();
             ResultSet rs=st.executeQuery(query);
@@ -262,7 +272,7 @@ public int GetCid()
             return Globalcid;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(c_acc_cr.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerRegistration_frame.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
     }
@@ -283,20 +293,20 @@ public int GetCid()
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(c_acc_cr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerRegistration_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(c_acc_cr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerRegistration_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(c_acc_cr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerRegistration_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(c_acc_cr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerRegistration_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new c_acc_cr().setVisible(true);
+                new CustomerRegistration_frame().setVisible(true);
             }
         });
     }
