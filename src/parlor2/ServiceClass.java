@@ -25,6 +25,12 @@ private String sdescription;
             this.pid=pid;
             this.pid=pid;
         }
+         public ServiceClass(String sname, String sprice)
+         {
+                 this.sname=sname;
+            this.sprice=sprice;
+         }
+        
         public int getpid(){
             return this.pid;
         }

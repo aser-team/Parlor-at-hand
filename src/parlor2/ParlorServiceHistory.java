@@ -32,6 +32,7 @@ public class ParlorServiceHistory extends javax.swing.JFrame {
         initComponents();
         this.pid=pid;
         Show_Bookings_In_JTable();
+        setSize(630,525);
     }
     
     public int getPID()
