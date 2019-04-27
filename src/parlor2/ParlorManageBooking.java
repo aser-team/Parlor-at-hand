@@ -20,6 +20,7 @@ private String Price;
 private String DateAndTime;
 private String BookStatus;
 private String BStatus;
+private String Cname;
         public ParlorManageBooking(int bookingID,String ParlorName,String ServiceName,String Price,String DateAndTime,String BookStatus)
         {
             this.ParlorName=ParlorName;
@@ -28,6 +29,19 @@ private String BStatus;
             this.DateAndTime=DateAndTime;
             this.BookStatus=BookStatus;
             this.bookingID=bookingID;
+        }
+         public ParlorManageBooking(String Cname, String ServiceName,String Price, String DateAndTime, String BookStatus)
+        {
+            this.Cname=Cname;
+            this.ServiceName=ServiceName;
+            this.Price=Price;
+            this.DateAndTime=DateAndTime;
+            this.BookStatus=BookStatus;
+        }
+        
+        public String getCname()
+        {
+            return this.Cname;
         }
         public int getBookingId()
         {
