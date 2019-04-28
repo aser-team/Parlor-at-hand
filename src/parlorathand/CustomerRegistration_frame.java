@@ -68,6 +68,7 @@ public class CustomerRegistration_frame extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
         jLabel1.setText("Customer Account");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(247, 11, 166, 22);
@@ -93,21 +94,25 @@ public class CustomerRegistration_frame extends javax.swing.JFrame {
         t1.setBounds(173, 114, 359, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Name                       :");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(49, 114, 106, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 153, 0));
         jLabel5.setText("Gender                    :");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(49, 145, 106, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 153, 0));
         jLabel6.setText("Contact No.            :");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(49, 176, 106, 20);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 153, 0));
         jLabel7.setText("Email ID                  :");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(49, 207, 106, 20);
@@ -117,6 +122,7 @@ public class CustomerRegistration_frame extends javax.swing.JFrame {
         t3.setBounds(173, 207, 361, 20);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 153, 0));
         jLabel12.setText("Account Information");
         jPanel1.add(jLabel12);
         jLabel12.setBounds(269, 257, 117, 20);
@@ -126,16 +132,19 @@ public class CustomerRegistration_frame extends javax.swing.JFrame {
         t5.setBounds(173, 343, 361, 20);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 153, 0));
         jLabel13.setText("*Username           :");
         jPanel1.add(jLabel13);
         jLabel13.setBounds(49, 305, 106, 20);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 153, 0));
         jLabel14.setText("*Password            :");
         jPanel1.add(jLabel14);
         jLabel14.setBounds(49, 343, 106, 20);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("Customer Information");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(247, 65, 156, 17);
