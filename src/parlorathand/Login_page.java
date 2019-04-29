@@ -139,7 +139,7 @@ public class Login_page extends javax.swing.JFrame {
         String UsernameCol="";
         String passwordCol="";
         
-      /*  if(checkuser.equals("pid"))
+       if(checkuser.equals("pid"))
             {
             query="SELECT username,password FROM parlor";
             UsernameCol="username";
@@ -158,7 +158,7 @@ public class Login_page extends javax.swing.JFrame {
         else
         {
             LBL_try.setVisible(true);
-        }*/
+        }
     }//GEN-LAST:event_BTN_loginActionPerformed
 
        public String getCID(String UsernameCol, String passwordCol, String query)
